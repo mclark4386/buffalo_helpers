@@ -5,6 +5,8 @@ import (
 	"strings"
 )
 
+// This will check for if the requested path has a known file extention and will
+// properly remove it and set the content-type if it is not already set.
 func AutoSetContentType(h http.Handler) http.Handler {
 	return http.HandlerFunc(func(res http.ResponseWriter, req *http.Request) {
 		path := strings.ToLower(req.URL.Path)
